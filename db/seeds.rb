@@ -6,8 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Category.create([
+  { name: 'Plumbing', description: 'This category is for plumbers.', icon: 'https://img.icons8.com/pastel-glyph/2x/plumbing.png' },
+])
+
 User.create([
-  { name: 'Marco Riesgo', time_bank: 4, location: 'Los Angeles, CA', specialization: 'Bathrooms', email: 'marcoriesgo@gmail.com', phone: '4086239921', objective: 'I am looking for gardeners' },
+  { name: 'Marco Riesgo', time_bank: 4, location: 'Los Angeles, CA', specialization: 'Bathrooms', email: 'marcoriesgo@gmail.com', phone: '4086239921', objective: 'I am looking for gardeners', category_id: 1 },
 ])
 
 Message.create([
