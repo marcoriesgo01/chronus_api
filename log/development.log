@@ -556,3 +556,1409 @@ Processing by MessagesController#show as HTML
 Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 821)
 
 
+Started GET "/categories/1/users/1/messages/1" for ::1 at 2020-05-11 13:02:43 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MessagesController#show as HTML
+  Parameters: {"category_id"=>"1", "user_id"=>"1", "id"=>"1"}
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:44:in `set_message'
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 12.8ms | Allocations: 8590)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-05-11 13:02:43 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/categories" for ::1 at 2020-05-11 14:00:09 -0700
+Processing by CategoriesController#index as */*
+  Parameters: {"review"=>{"title"=>"Hey! Say! JUMP", "content"=>"Hey Say! Best", "author"=>"Hey Say! 7"}}
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 63ms (Views: 37.0ms | ActiveRecord: 14.4ms | Allocations: 7061)
+
+
+Started GET "/categories/1" for ::1 at 2020-05-11 14:00:22 -0700
+Processing by CategoriesController#show as */*
+  Parameters: {"review"=>{"title"=>"Hey! Say! JUMP", "content"=>"Hey Say! Best", "author"=>"Hey Say! 7"}, "id"=>"1"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.5ms | Allocations: 995)
+
+
+Started POST "/categories" for ::1 at 2020-05-11 14:03:11 -0700
+Processing by CategoriesController#create as */*
+  Parameters: {"categories"=>{"name"=>"Cleaning", "description"=>"Here, you can find users looking to trade their time by offering cleaning services.", "icon"=>"https://cdn3.iconfinder.com/data/icons/clean-4/512/clean-09-512.png"}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 145)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: category):
+  
+app/controllers/categories_controller.rb:49:in `category_params'
+app/controllers/categories_controller.rb:18:in `create'
+Started POST "/categories" for ::1 at 2020-05-11 14:04:09 -0700
+Processing by CategoriesController#create as */*
+  Parameters: {"category"=>{"name"=>"Cleaning", "description"=>"Here, you can find users looking to trade their time by offering cleaning services.", "icon"=>"https://cdn3.iconfinder.com/data/icons/clean-4/512/clean-09-512.png"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:20:in `create'
+  [1m[36mCategory Create (1.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Cleaning"], ["description", "Here, you can find users looking to trade their time by offering cleaning services."], ["icon", "https://cdn3.iconfinder.com/data/icons/clean-4/512/clean-09-512.png"], ["created_at", "2020-05-11 21:04:09.946885"], ["updated_at", "2020-05-11 21:04:09.946885"]]
+  ↳ app/controllers/categories_controller.rb:20:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:20:in `create'
+Completed 201 Created in 18ms (Views: 1.9ms | ActiveRecord: 3.6ms | Allocations: 3053)
+
+
+Started GET "/categories/1" for ::1 at 2020-05-11 14:04:19 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 824)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 14:04:21 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 1161)
+
+
+Started PUT "/categories/2" for ::1 at 2020-05-11 14:05:06 -0700
+Processing by CategoriesController#update as */*
+  Parameters: {"category"=>{"name"=>"Housekeeping", "description"=>"Here, you can find users looking to trade their time by offering cleaning services.", "icon"=>"https://cdn3.iconfinder.com/data/icons/clean-4/512/clean-09-512.png"}, "id"=>"2"}
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:29:in `update'
+  [1m[36mCategory Update (0.7ms)[0m  [1m[33mUPDATE "categories" SET "name" = $1, "updated_at" = $2 WHERE "categories"."id" = $3[0m  [["name", "Housekeeping"], ["updated_at", "2020-05-11 21:05:06.714723"], ["id", 2]]
+  ↳ app/controllers/categories_controller.rb:29:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:29:in `update'
+Completed 200 OK in 16ms (Views: 1.2ms | ActiveRecord: 3.1ms | Allocations: 3353)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 14:05:09 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1161)
+
+
+Started DELETE "/categories/2" for ::1 at 2020-05-11 14:05:32 -0700
+Processing by CategoriesController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:38:in `destroy'
+  [1m[36mCategory Destroy (0.4ms)[0m  [1m[31mDELETE FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/categories_controller.rb:38:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:38:in `destroy'
+Completed 204 No Content in 9ms (ActiveRecord: 1.4ms | Allocations: 2527)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 14:05:36 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1015)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:12:33 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 24ms (Views: 10.3ms | ActiveRecord: 9.8ms | Allocations: 10793)
+
+
+Started GET "/" for ::1 at 2020-05-11 14:12:40 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marcoriesgo/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marcoriesgo/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.4ms | Allocations: 208)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 916)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 14:12:43 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.6ms | Allocations: 5838)
+
+
+Started GET "/categories/1" for ::1 at 2020-05-11 14:12:46 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 955)
+
+
+Started GET "/categories/1/users" for ::1 at 2020-05-11 14:12:48 -0700
+Processing by UsersController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1096)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:17:41 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 1.1ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:18:01 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 3.3ms | ActiveRecord: 5.0ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:18:19 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (14.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 3.2ms | ActiveRecord: 14.7ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:18:44 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 3.9ms | ActiveRecord: 9.4ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:19:18 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 1.3ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:20:49 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 5.3ms | ActiveRecord: 12.6ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:24:12 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 1.1ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:24:26 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 1.2ms | Allocations: 1099)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:24:44 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1098)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:25:03 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1098)
+
+
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6404535077987863110)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPictureToUsers (20200511212552)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "users" ADD "img" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200511212552"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6404535077987863110)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (8140.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "chronus_api_development"[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (74.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "chronus_api_development"[0m
+  [1m[35m (60.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "chronus_api_test"[0m
+  [1m[35m (206.4ms)[0m  [1m[35mCREATE DATABASE "chronus_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (127.8ms)[0m  [1m[35mCREATE DATABASE "chronus_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" character varying, "icon" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "author" character varying, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "time_bank" integer, "location" character varying, "specialization" character varying, "email" character varying, "phone" character varying, "objective" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" integer, "img" character varying)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200511212552)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200511185649),
+(20200511190225),
+(20200511190646),
+(20200511194402),
+(20200511194458);
+
+[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-11 21:27:59.470172"], ["updated_at", "2020-05-11 21:27:59.470172"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d60d9082fdedeb10d895494feb725887d7b9cfdf"], ["created_at", "2020-05-11 21:27:59.487405"], ["updated_at", "2020-05-11 21:27:59.487405"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" character varying, "icon" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "author" character varying, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "time_bank" integer, "location" character varying, "specialization" character varying, "email" character varying, "phone" character varying, "objective" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" integer, "img" character varying)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200511212552)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200511185649),
+(20200511190225),
+(20200511190646),
+(20200511194402),
+(20200511194458);
+
+[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-11 21:27:59.622377"], ["updated_at", "2020-05-11 21:27:59.622377"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.8ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-11 21:27:59.637233"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d60d9082fdedeb10d895494feb725887d7b9cfdf"], ["created_at", "2020-05-11 21:27:59.647130"], ["updated_at", "2020-05-11 21:27:59.647130"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (1.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Plumbing"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 21:27:59.749499"], ["updated_at", "2020-05-11 21:27:59.749499"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "time_bank", "location", "specialization", "email", "phone", "objective", "created_at", "updated_at", "category_id", "img") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Marco Riesgo"], ["time_bank", 4], ["location", "Los Angeles, CA"], ["specialization", "Bathrooms"], ["email", "marcoriesgo@gmail.com"], ["phone", "4086239921"], ["objective", "I am looking for gardeners"], ["created_at", "2020-05-11 21:27:59.804286"], ["updated_at", "2020-05-11 21:27:59.804286"], ["category_id", 1], ["img", "https://media-exp1.licdn.com/dms/image/C5603AQEhDb3Tqla62Q/profile-displayphoto-shrink_200_200/0?e=1594252800&v=beta&t=ZBaPn0O3iBp3YvZkl-TiTfrtAizyCQUf1NPTibsvpbo"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Create (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("author", "title", "content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["author", "Ignacio Riesgo"], ["title", "I want to work with you"], ["content", "I am looking for a plumber experienced in fixing bathrooms"], ["created_at", "2020-05-11 21:27:59.832437"], ["updated_at", "2020-05-11 21:27:59.832437"], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2020-05-11 14:28:10 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 13.1ms | ActiveRecord: 8.0ms | Allocations: 13032)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:28:56 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 2.3ms | Allocations: 1144)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:29:00 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1143)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:30:34 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1143)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:31:09 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1126)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:31:32 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1126)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:32:45 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1143)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:34:20 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms | Allocations: 1126)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:34:24 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 1126)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:34:39 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 1126)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:41:05 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.0ms | Allocations: 1221)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:41:17 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 2.5ms | Allocations: 1126)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:42:07 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 1126)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (103.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "chronus_api_development"[0m
+  [1m[35m (71.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "chronus_api_test"[0m
+  [1m[35m (181.9ms)[0m  [1m[35mCREATE DATABASE "chronus_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (226.3ms)[0m  [1m[35mCREATE DATABASE "chronus_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" character varying, "icon" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "author" character varying, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "time_bank" integer, "location" character varying, "specialization" character varying, "email" character varying, "phone" character varying, "objective" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" integer, "img" character varying)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200511212552)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200511185649),
+(20200511190225),
+(20200511190646),
+(20200511194402),
+(20200511194458);
+
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-11 21:48:14.622045"], ["updated_at", "2020-05-11 21:48:14.622045"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d60d9082fdedeb10d895494feb725887d7b9cfdf"], ["created_at", "2020-05-11 21:48:14.635743"], ["updated_at", "2020-05-11 21:48:14.635743"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" character varying, "icon" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "author" character varying, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "time_bank" integer, "location" character varying, "specialization" character varying, "email" character varying, "phone" character varying, "objective" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" integer, "img" character varying)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200511212552)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200511185649),
+(20200511190225),
+(20200511190646),
+(20200511194402),
+(20200511194458);
+
+[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-11 21:48:14.763698"], ["updated_at", "2020-05-11 21:48:14.763698"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-11 21:48:14.772535"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d60d9082fdedeb10d895494feb725887d7b9cfdf"], ["created_at", "2020-05-11 21:48:14.778135"], ["updated_at", "2020-05-11 21:48:14.778135"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Plumbing"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 21:48:14.858712"], ["updated_at", "2020-05-11 21:48:14.858712"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "time_bank", "location", "specialization", "email", "phone", "objective", "created_at", "updated_at", "category_id", "img") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Marco Riesgo"], ["time_bank", 4], ["location", "Los Angeles, CA"], ["specialization", "Bathrooms"], ["email", "marcoriesgo@gmail.com"], ["phone", "4086239921"], ["objective", "I am looking for gardeners"], ["created_at", "2020-05-11 21:48:14.904327"], ["updated_at", "2020-05-11 21:48:14.904327"], ["category_id", 1], ["img", "https://media-exp1.licdn.com/dms/image/C5603AQEhDb3Tqla62Q/profile-displayphoto-shrink_200_200/0?e=1594252800&v=beta&t=ZBaPn0O3iBp3YvZkl-TiTfrtAizyCQUf1NPTibsvpbo"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "time_bank", "location", "specialization", "email", "phone", "objective", "created_at", "updated_at", "category_id", "img") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Ignacio Riesgo"], ["time_bank", 3], ["location", "Los Angeles, CA"], ["specialization", "Piping"], ["email", "ignacioriesgo@gmail.com"], ["phone", "4082349921"], ["objective", "I am looking for housekeepeers"], ["created_at", "2020-05-11 21:48:14.912151"], ["updated_at", "2020-05-11 21:48:14.912151"], ["category_id", 1], ["img", "data:image/jpeg;base64,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"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Create (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("author", "title", "content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["author", "Ignacio Riesgo"], ["title", "I want to work with you"], ["content", "I am looking for a plumber experienced in fixing bathrooms"], ["created_at", "2020-05-11 21:48:14.935423"], ["updated_at", "2020-05-11 21:48:14.935423"], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2020-05-11 14:48:25 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 8.7ms | Allocations: 13267)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:49:55 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1380)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:52:02 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1378)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:52:50 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.8ms | Allocations: 1378)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:52:59 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 1361)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:53:29 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.9ms | Allocations: 1378)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 14:53:29 -0700
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 42ms (Views: 11.8ms | ActiveRecord: 25.6ms | Allocations: 6220)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:56:34 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 4.2ms | Allocations: 1361)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 14:56:34 -0700
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (19.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 3.2ms | ActiveRecord: 19.0ms | Allocations: 1015)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:56:43 -0700
+Started GET "/categories" for ::1 at 2020-05-11 14:56:43 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (13.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 4.1ms | ActiveRecord: 13.3ms | Allocations: 1361)
+
+
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.8ms | Allocations: 1090)
+
+
+Started GET "/users" for ::1 at 2020-05-11 14:57:03 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 7.0ms | ActiveRecord: 4.5ms | Allocations: 1383)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 14:57:03 -0700
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (6.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 2.1ms | ActiveRecord: 6.2ms | Allocations: 1015)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:10:23 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:10:23 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 1.8ms | Allocations: 1617)
+
+
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 2.4ms | Allocations: 2662)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:17:04 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:17:04 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (11.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 63ms (Views: 51.1ms | ActiveRecord: 11.5ms | Allocations: 1484)
+
+
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 2.6ms | Allocations: 1091)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:17:17 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 1.9ms | Allocations: 1381)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:17:17 -0700
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (18.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 21ms (Views: 2.5ms | ActiveRecord: 18.4ms | Allocations: 1015)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:20:43 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 1.3ms | Allocations: 1361)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:20:43 -0700
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (10.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 3.8ms | ActiveRecord: 10.2ms | Allocations: 1015)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:21:47 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:21:47 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (3.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 3.5ms | Allocations: 1629)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 1.5ms | Allocations: 2495)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:22:05 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:22:05 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (6.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 6.9ms | Allocations: 1612)
+
+
+  [1m[36mUser Load (10.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 3.4ms | ActiveRecord: 10.1ms | Allocations: 2495)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:22:39 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:22:39 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (5.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 2.3ms | ActiveRecord: 5.9ms | Allocations: 1372)
+
+
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 8.2ms | ActiveRecord: 6.0ms | Allocations: 2447)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:23:32 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:23:32 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (14.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 3.8ms | ActiveRecord: 14.3ms | Allocations: 1612)
+
+
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 3.0ms | Allocations: 2474)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (140.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "chronus_api_development"[0m
+  [1m[35m (72.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "chronus_api_test"[0m
+  [1m[35m (191.3ms)[0m  [1m[35mCREATE DATABASE "chronus_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (108.9ms)[0m  [1m[35mCREATE DATABASE "chronus_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (27.8ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" character varying, "icon" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "author" character varying, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "time_bank" integer, "location" character varying, "specialization" character varying, "email" character varying, "phone" character varying, "objective" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" integer, "img" character varying)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200511212552)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200511185649),
+(20200511190225),
+(20200511190646),
+(20200511194402),
+(20200511194458);
+
+[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-11 22:35:30.538444"], ["updated_at", "2020-05-11 22:35:30.538444"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d60d9082fdedeb10d895494feb725887d7b9cfdf"], ["created_at", "2020-05-11 22:35:30.554097"], ["updated_at", "2020-05-11 22:35:30.554097"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories" CASCADE[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" character varying, "icon" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "author" character varying, "title" character varying, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "time_bank" integer, "location" character varying, "specialization" character varying, "email" character varying, "phone" character varying, "objective" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category_id" integer, "img" character varying)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200511212552)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200511185649),
+(20200511190225),
+(20200511190646),
+(20200511194402),
+(20200511194458);
+
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-11 22:35:30.688006"], ["updated_at", "2020-05-11 22:35:30.688006"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-05-11 22:35:30.697529"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d60d9082fdedeb10d895494feb725887d7b9cfdf"], ["created_at", "2020-05-11 22:35:30.705716"], ["updated_at", "2020-05-11 22:35:30.705716"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (15.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Plumbing"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.799851"], ["updated_at", "2020-05-11 22:35:30.799851"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Housekeeping"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.866276"], ["updated_at", "2020-05-11 22:35:30.866276"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Gardening"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.875425"], ["updated_at", "2020-05-11 22:35:30.875425"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Pet Care"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.881555"], ["updated_at", "2020-05-11 22:35:30.881555"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Tansportation"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.886661"], ["updated_at", "2020-05-11 22:35:30.886661"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Child Care"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.892452"], ["updated_at", "2020-05-11 22:35:30.892452"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Tutoring"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.899097"], ["updated_at", "2020-05-11 22:35:30.899097"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Translation"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.904886"], ["updated_at", "2020-05-11 22:35:30.904886"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Electricians"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.910506"], ["updated_at", "2020-05-11 22:35:30.910506"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Handymen"], ["description", "This category is for plumbers."], ["icon", "https://img.icons8.com/pastel-glyph/2x/plumbing.png"], ["created_at", "2020-05-11 22:35:30.917457"], ["updated_at", "2020-05-11 22:35:30.917457"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "time_bank", "location", "specialization", "email", "phone", "objective", "created_at", "updated_at", "category_id", "img") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Marco Riesgo"], ["time_bank", 4], ["location", "Los Angeles, CA"], ["specialization", "Bathrooms"], ["email", "marcoriesgo@gmail.com"], ["phone", "4086239921"], ["objective", "I am looking for gardeners"], ["created_at", "2020-05-11 22:35:30.945117"], ["updated_at", "2020-05-11 22:35:30.945117"], ["category_id", 1], ["img", "https://media-exp1.licdn.com/dms/image/C5603AQEhDb3Tqla62Q/profile-displayphoto-shrink_200_200/0?e=1594252800&v=beta&t=ZBaPn0O3iBp3YvZkl-TiTfrtAizyCQUf1NPTibsvpbo"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "time_bank", "location", "specialization", "email", "phone", "objective", "created_at", "updated_at", "category_id", "img") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Ignacio Riesgo"], ["time_bank", 3], ["location", "Los Angeles, CA"], ["specialization", "Piping"], ["email", "ignacioriesgo@gmail.com"], ["phone", "4082349921"], ["objective", "I am looking for housekeepeers"], ["created_at", "2020-05-11 22:35:30.952855"], ["updated_at", "2020-05-11 22:35:30.952855"], ["category_id", 1], ["img", "data:image/jpeg;base64,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"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "messages" ("author", "title", "content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["author", "Ignacio Riesgo"], ["title", "I want to work with you"], ["content", "I am looking for a plumber experienced in fixing bathrooms"], ["created_at", "2020-05-11 22:35:30.972100"], ["updated_at", "2020-05-11 22:35:30.972100"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2020-05-11 15:35:45 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:35:45 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 23.1ms | ActiveRecord: 11.5ms | Allocations: 12169)
+
+
+Completed 200 OK in 58ms (Views: 21.0ms | ActiveRecord: 25.1ms | Allocations: 20854)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:36:10 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:36:10 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 2.0ms | Allocations: 2170)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 1.1ms | Allocations: 3850)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:47:20 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:47:20 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 1.3ms | Allocations: 3036)
+
+
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 2.9ms | ActiveRecord: 3.5ms | Allocations: 4010)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:47:59 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:47:59 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.8ms | Allocations: 3760)
+
+
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.3ms | Allocations: 3013)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:48:54 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:48:54 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 3012)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.9ms | Allocations: 3960)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:49:03 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:49:03 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.7ms | Allocations: 2486)
+
+
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 3.0ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:49:07 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:49:07 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.9ms | Allocations: 2025)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 1.4ms | Allocations: 3960)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:49:12 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:49:12 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 1.6ms | Allocations: 2349)
+
+
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 4.1ms | ActiveRecord: 6.2ms | Allocations: 3981)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:50:12 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:50:12 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 1.1ms | Allocations: 3602)
+
+
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 1.5ms | Allocations: 2956)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:50:56 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:50:56 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 2.3ms | Allocations: 1978)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 1.3ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:51:06 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:51:06 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms | Allocations: 2019)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 1.4ms | Allocations: 3960)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:51:30 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:51:30 -0700
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 1.2ms | Allocations: 2357)
+
+
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 1.1ms | Allocations: 1361)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:51:41 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:51:41 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (2.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 2.9ms | Allocations: 2480)
+
+
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 6.3ms | ActiveRecord: 8.3ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:51:48 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:51:48 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 2.0ms | Allocations: 2705)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 2.1ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:52:06 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:52:06 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.5ms | Allocations: 1948)
+
+
+  [1m[36mCategory Load (3.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 3.7ms | Allocations: 3808)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:52:16 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:52:16 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.6ms | Allocations: 2936)
+
+
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 15.6ms | ActiveRecord: 8.8ms | Allocations: 3804)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:53:31 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:53:31 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 2025)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 1.3ms | Allocations: 3966)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:53:40 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:53:40 -0700
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Processing by CategoriesController#index as */*
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 1968)
+
+
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 1.4ms | Allocations: 3164)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:53:43 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:53:43 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.9ms | Allocations: 2020)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 1.3ms | Allocations: 3913)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:55:35 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:55:35 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 1493)
+
+
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 2.1ms | Allocations: 3775)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:56:03 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:56:03 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.9ms | Allocations: 1976)
+
+
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.6ms | Allocations: 3809)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:56:26 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:56:26 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 1.5ms | Allocations: 1958)
+
+
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 2.1ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:56:30 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:56:30 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.7ms | Allocations: 2500)
+
+
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.9ms | Allocations: 3628)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:56:48 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:56:48 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 3.2ms | Allocations: 1994)
+
+
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 2.2ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:56:56 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:56:56 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 1.2ms | Allocations: 1992)
+
+
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 1.0ms | Allocations: 3802)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:57:02 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:57:02 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.9ms | Allocations: 2374)
+
+
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 1.7ms | Allocations: 3960)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:57:08 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:57:08 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.4ms | Allocations: 1949)
+
+
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 2.6ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:57:33 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:57:33 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 1493)
+
+
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 1.7ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:57:43 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:57:43 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 1697)
+
+
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 2.2ms | Allocations: 3808)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:58:04 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:58:04 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 2486)
+
+
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 2.7ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 15:58:29 -0700
+Started GET "/categories" for ::1 at 2020-05-11 15:58:29 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 1.4ms | Allocations: 3144)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.5ms | Allocations: 3828)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 15:59:25 -0700
+Started GET "/users" for ::1 at 2020-05-11 15:59:25 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 1.1ms | Allocations: 3608)
+
+
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.7ms | Allocations: 2500)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 16:00:16 -0700
+Started GET "/users" for ::1 at 2020-05-11 16:00:16 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.8ms | Allocations: 1958)
+
+
+  [1m[36mCategory Load (3.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 3.1ms | Allocations: 3807)
+
+
+Started GET "/users" for ::1 at 2020-05-11 16:01:04 -0700
+Started GET "/categories" for ::1 at 2020-05-11 16:01:04 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (8.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 12ms (Views: 3.2ms | ActiveRecord: 8.8ms | Allocations: 2705)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 5.2ms | ActiveRecord: 7.6ms | Allocations: 3828)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 16:01:47 -0700
+Started GET "/users" for ::1 at 2020-05-11 16:01:47 -0700
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+Processing by UsersController#index as */*
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.7ms | Allocations: 2959)
+
+
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 3.4ms | Allocations: 3170)
+
+
+Started GET "/users" for ::1 at 2020-05-11 16:02:38 -0700
+Started GET "/categories" for ::1 at 2020-05-11 16:02:38 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 2019)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 1.1ms | Allocations: 3966)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 16:05:02 -0700
+Started GET "/users" for ::1 at 2020-05-11 16:05:02 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 1.4ms | Allocations: 2956)
+
+
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 1.2ms | Allocations: 3628)
+
+
+Started GET "/users" for ::1 at 2020-05-11 16:16:55 -0700
+Started GET "/categories" for ::1 at 2020-05-11 16:16:55 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 1.1ms | Allocations: 1611)
+
+
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 1.1ms | Allocations: 3775)
+
+
+Started GET "/categories" for ::1 at 2020-05-11 16:17:18 -0700
+Started GET "/users" for ::1 at 2020-05-11 16:17:18 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 2.5ms | Allocations: 1958)
+
+
+  [1m[36mCategory Load (5.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 7.2ms | ActiveRecord: 5.0ms | Allocations: 3828)
+
+
+Started GET "/users" for ::1 at 2020-05-11 16:17:39 -0700
+Started GET "/categories" for ::1 at 2020-05-11 16:17:39 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 2.4ms | Allocations: 2350)
+
+
+  [1m[36mUser Load (31.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 34ms (Views: 2.7ms | ActiveRecord: 31.4ms | Allocations: 3935)
+
+
+Started GET "/users" for ::1 at 2020-05-11 16:17:50 -0700
+Started GET "/categories" for ::1 at 2020-05-11 16:17:50 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 1.4ms | Allocations: 2157)
+
+
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 1.1ms | Allocations: 3828)
+
+
