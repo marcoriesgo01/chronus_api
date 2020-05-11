@@ -9,3 +9,7 @@
 User.create([
   { name: 'Marco Riesgo', time_bank: 4, location: 'Los Angeles, CA', specialization: 'Bathrooms', email: 'marcoriesgo@gmail.com', phone: '4086239921', objective: 'I am looking for gardeners' },
 ])
+
+Message.create([
+  { author: 'Ignacio Riesgo', title: 'I want to work with you', content: 'I am looking for a plumber experienced in fixing bathrooms', user_id: 1 },
+])
