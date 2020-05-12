@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.where(category_id: params[:category_id])
 
     render json: @users
   end
@@ -46,6 +46,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :time_bank, :location, :specialization, :email, :phone, :objective)
+      params.require(:user).permit(:name, :time_bank, :location, :specialization, :email, :phone, :objective, :img, :category_id)
     end
 end
