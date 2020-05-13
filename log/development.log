@@ -12280,3 +12280,556 @@ Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 1156)
 Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.7ms | Allocations: 2201)
 
 
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:17:37 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:17:37 -0700
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 1141)
+
+
+  [1m[36mMessage Load (3.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 3.0ms | Allocations: 2201)
+
+
+Started PATCH "/categories/1/users/1/messages/undefined" for ::1 at 2020-05-12 18:17:46 -0700
+Processing by MessagesController#update as HTML
+  Parameters: {"author"=>"Laura", "title"=>"cabeook", "content"=>"This is an emergency", "category_id"=>"1", "user_id"=>"1", "id"=>"undefined", "message"=>{"author"=>"Laura", "title"=>"cabeook", "content"=>"This is an emergency"}}
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:43:in `set_message'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms | Allocations: 682)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Message with 'id'=undefined):
+  
+app/controllers/messages_controller.rb:43:in `set_message'
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:17:46 -0700
+Processing by UsersController#show as */*
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:17:46 -0700
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 1460)
+
+
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1099)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:20:01 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:20:01 -0700
+Processing by MessagesController#index as */*
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 1121)
+
+
+  [1m[36mMessage Load (5.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 3.0ms | ActiveRecord: 5.1ms | Allocations: 2202)
+
+
+Started PATCH "/categories/1/users/1/messages/undefined" for ::1 at 2020-05-12 18:20:12 -0700
+Processing by MessagesController#update as HTML
+  Parameters: {"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency", "category_id"=>"1", "user_id"=>"1", "id"=>"undefined", "message"=>{"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency"}}
+  [1m[36mMessage Load (8.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:43:in `set_message'
+Completed 404 Not Found in 11ms (ActiveRecord: 8.7ms | Allocations: 678)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Message with 'id'=undefined):
+  
+app/controllers/messages_controller.rb:43:in `set_message'
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:20:12 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:20:12 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mMessage Load (2.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 2.0ms | Allocations: 2909)
+
+
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 1047)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:20:41 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:20:41 -0700
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 40ms (Views: 22.2ms | ActiveRecord: 8.2ms | Allocations: 11017)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 61ms (Views: 0.9ms | ActiveRecord: 30.7ms | Allocations: 20754)
+
+
+Started PATCH "/categories/1/users/1/messages/undefined" for ::1 at 2020-05-12 18:20:47 -0700
+Processing by MessagesController#update as HTML
+  Parameters: {"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency", "category_id"=>"1", "user_id"=>"1", "id"=>"undefined", "message"=>{"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency"}}
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:43:in `set_message'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms | Allocations: 819)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Message with 'id'=undefined):
+  
+app/controllers/messages_controller.rb:43:in `set_message'
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:20:47 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:20:47 -0700
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 4970)
+
+
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.3ms | Allocations: 1310)
+
+
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:23:39 -0700
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:23:39 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mMessage Load (1.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.1ms | Allocations: 1192)
+
+
+  [1m[36mUser Load (19.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 22ms (Views: 0.7ms | ActiveRecord: 19.0ms | Allocations: 2077)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:23:53 -0700
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:23:53 -0700
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 1301)
+
+
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mMessage Load (1.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 1.8ms | Allocations: 1101)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:24:10 -0700
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:24:10 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 2.0ms | Allocations: 2034)
+
+
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.7ms | Allocations: 2205)
+
+
+Started PATCH "/categories/1/users/1/messages/12" for ::1 at 2020-05-12 18:24:20 -0700
+Processing by MessagesController#update as HTML
+  Parameters: {"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency", "category_id"=>"1", "user_id"=>"1", "id"=>"12", "message"=>{"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency"}}
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:43:in `set_message'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[36mMessage Update (1.2ms)[0m  [1m[33mUPDATE "messages" SET "title" = $1, "updated_at" = $2 WHERE "messages"."id" = $3[0m  [["title", "Facebook"], ["updated_at", "2020-05-13 01:24:20.092610"], ["id", 12]]
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+Completed 200 OK in 27ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 10005)
+
+
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:24:20 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mMessage Load (17.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 20ms (Views: 1.8ms | ActiveRecord: 17.7ms | Allocations: 1099)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:24:20 -0700
+Processing by UsersController#show as */*
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:24:20 -0700
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 1464)
+
+
+  [1m[36mMessage Load (2.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 2.1ms | Allocations: 1299)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:24:33 -0700
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 924)
+
+
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:24:33 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mMessage Load (7.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 1.8ms | ActiveRecord: 7.0ms | Allocations: 1099)
+
+
+Started PUT "/categories/1/users/1/messages/12" for ::1 at 2020-05-12 18:24:41 -0700
+Processing by MessagesController#update as HTML
+  Parameters: {"author"=>"Laura", "title"=>"Twitter", "content"=>"This is an emergency", "category_id"=>"1", "user_id"=>"1", "id"=>"12", "message"=>{"author"=>"Laura", "title"=>"Twitter", "content"=>"This is an emergency"}}
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:43:in `set_message'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[36mMessage Update (1.8ms)[0m  [1m[33mUPDATE "messages" SET "title" = $1, "updated_at" = $2 WHERE "messages"."id" = $3[0m  [["title", "Twitter"], ["updated_at", "2020-05-13 01:24:41.631413"], ["id", 12]]
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 4.3ms | Allocations: 4634)
+
+
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:24:41 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mMessage Load (1.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 1.1ms | Allocations: 1099)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:24:41 -0700
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:24:41 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+  [1m[36mUser Load (13.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 13.3ms | Allocations: 1689)
+
+
+  [1m[36mMessage Load (16.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 19ms (Views: 1.4ms | ActiveRecord: 16.9ms | Allocations: 2201)
+
+
+Started GET "/users" for ::1 at 2020-05-12 18:25:07 -0700
+Started GET "/categories" for ::1 at 2020-05-12 18:25:07 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" IS NULL[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 2.0ms | Allocations: 2535)
+
+
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 41ms (Views: 10.2ms | ActiveRecord: 26.5ms | Allocations: 8704)
+
+
+Started GET "/categories/1/users" for ::1 at 2020-05-12 18:25:08 -0700
+Started GET "/categories/1" for ::1 at 2020-05-12 18:25:08 -0700
+Processing by CategoriesController#show as */*
+  Parameters: {"id"=>"1"}
+Processing by UsersController#index as */*
+  Parameters: {"category_id"=>"1"}
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1404)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.7ms | Allocations: 2669)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:25:09 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:25:09 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.7ms | Allocations: 1192)
+
+
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 3.8ms | Allocations: 2077)
+
+
+Started PUT "/categories/1/users/1/messages/12" for ::1 at 2020-05-12 18:25:15 -0700
+Processing by MessagesController#update as HTML
+  Parameters: {"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency", "category_id"=>"1", "user_id"=>"1", "id"=>"12", "message"=>{"author"=>"Laura", "title"=>"Facebook", "content"=>"This is an emergency"}}
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:43:in `set_message'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[36mMessage Update (7.3ms)[0m  [1m[33mUPDATE "messages" SET "title" = $1, "updated_at" = $2 WHERE "messages"."id" = $3[0m  [["title", "Facebook"], ["updated_at", "2020-05-13 01:25:15.562835"], ["id", 12]]
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/messages_controller.rb:28:in `update'
+Completed 200 OK in 20ms (Views: 0.6ms | ActiveRecord: 10.6ms | Allocations: 4626)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:25:15 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:25:15 -0700
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1192)
+
+
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 2.4ms | Allocations: 2082)
+
+
+Started GET "/users" for ::1 at 2020-05-12 18:25:42 -0700
+Started GET "/categories" for ::1 at 2020-05-12 18:25:42 -0700
+Processing by CategoriesController#index as */*
+Processing by UsersController#index as */*
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" IS NULL[0m
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.8ms | Allocations: 2562)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 3414)
+
+
+Started GET "/categories/1/users" for ::1 at 2020-05-12 18:25:43 -0700
+Started GET "/categories/1" for ::1 at 2020-05-12 18:25:43 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#show as */*
+  Parameters: {"category_id"=>"1"}
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 866)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.9ms | Allocations: 2745)
+
+
+Started GET "/categories/1" for ::1 at 2020-05-12 18:25:45 -0700
+Processing by CategoriesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 812)
+
+
+Started POST "/categories/1/users" for ::1 at 2020-05-12 18:25:57 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"Marco Riesgo Almonacid", "time_bank"=>1, "location"=>"Beverly Hills", "specialization"=>"Kitchens", "email"=>"marco.riesgo.almonacid@live.com", "phone"=>"4086239921", "objective"=>"Hoping to find a caretaker for children", "category_id"=>"1", "img"=>"https://beverlyhighlights.com/wp-content/uploads/2018/10/hj.jpg", "user"=>{"name"=>"Marco Riesgo Almonacid", "time_bank"=>1, "location"=>"Beverly Hills", "specialization"=>"Kitchens", "email"=>"marco.riesgo.almonacid@live.com", "phone"=>"4086239921", "objective"=>"Hoping to find a caretaker for children", "category_id"=>"1", "img"=>"https://beverlyhighlights.com/wp-content/uploads/2018/10/hj.jpg"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Started GET "/categories/1/users" for ::1 at 2020-05-12 18:25:57 -0700
+Started GET "/categories/1" for ::1 at 2020-05-12 18:25:57 -0700
+Processing by UsersController#index as */*
+  Parameters: {"category_id"=>"1"}
+Processing by CategoriesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Create (4.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "time_bank", "location", "specialization", "email", "phone", "objective", "created_at", "updated_at", "category_id", "img") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Marco Riesgo Almonacid"], ["time_bank", 1], ["location", "Beverly Hills"], ["specialization", "Kitchens"], ["email", "marco.riesgo.almonacid@live.com"], ["phone", "4086239921"], ["objective", "Hoping to find a caretaker for children"], ["created_at", "2020-05-13 01:25:57.645228"], ["updated_at", "2020-05-13 01:25:57.645228"], ["category_id", 1], ["img", "https://beverlyhighlights.com/wp-content/uploads/2018/10/hj.jpg"]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.9ms | Allocations: 2484)
+
+
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mCategory Load (7.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 7.7ms | Allocations: 3260)
+
+
+  [1m[35m (14.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 19.8ms | Allocations: 45212)
+
+
+  
+NoMethodError (undefined method `user_url' for #<UsersController:0x00007ff80448e820>
+Did you mean?  users_url):
+  
+app/controllers/users_controller.rb:21:in `create'
+Started GET "/categories/1/users" for ::1 at 2020-05-12 18:26:00 -0700
+Started GET "/categories/1" for ::1 at 2020-05-12 18:26:00 -0700
+Processing by UsersController#index as */*
+  Parameters: {"category_id"=>"1"}
+Processing by CategoriesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 2558)
+
+
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 2035)
+
+
+Started GET "/categories/1/users/6" for ::1 at 2020-05-12 18:29:12 -0700
+Started GET "/categories/1/users/6/messages" for ::1 at 2020-05-12 18:29:12 -0700
+Processing by MessagesController#index as */*
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"6"}
+  Parameters: {"category_id"=>"1", "user_id"=>"6"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.9ms | Allocations: 1844)
+
+
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 1146)
+
+
+Started GET "/users" for ::1 at 2020-05-12 18:29:14 -0700
+Started GET "/categories" for ::1 at 2020-05-12 18:29:14 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" IS NULL[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 2.2ms | ActiveRecord: 3.8ms | Allocations: 1561)
+
+
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 2.1ms | Allocations: 3352)
+
+
+Started GET "/categories/1/users" for ::1 at 2020-05-12 18:29:15 -0700
+Started GET "/categories/1" for ::1 at 2020-05-12 18:29:15 -0700
+Processing by UsersController#index as */*
+  Parameters: {"category_id"=>"1"}
+Processing by CategoriesController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+  Parameters: {"id"=>"1"}
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.8ms | Allocations: 2508)
+
+
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 2105)
+
+
+Started GET "/categories/1/users/6" for ::1 at 2020-05-12 18:29:17 -0700
+Processing by UsersController#show as */*
+Started GET "/categories/1/users/6/messages" for ::1 at 2020-05-12 18:29:17 -0700
+  Parameters: {"category_id"=>"1", "id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 946)
+
+
+Processing by MessagesController#index as */*
+  Parameters: {"category_id"=>"1", "user_id"=>"6"}
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.6ms | Allocations: 946)
+
+
+Started GET "/users" for ::1 at 2020-05-12 18:29:20 -0700
+Started GET "/categories" for ::1 at 2020-05-12 18:29:20 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" IS NULL[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 3012)
+
+
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.6ms | Allocations: 3545)
+
+
+Started GET "/categories/1/users" for ::1 at 2020-05-12 18:29:20 -0700
+Started GET "/categories/1" for ::1 at 2020-05-12 18:29:20 -0700
+Processing by UsersController#index as */*
+Processing by CategoriesController#show as */*
+  Parameters: {"category_id"=>"1"}
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1984)
+
+
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:44:in `set_category'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 2779)
+
+
+Started GET "/categories/1/users/1" for ::1 at 2020-05-12 18:29:21 -0700
+Started GET "/categories/1/users/1/messages" for ::1 at 2020-05-12 18:29:21 -0700
+Processing by UsersController#show as */*
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+Processing by MessagesController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `set_user'
+  Parameters: {"category_id"=>"1", "user_id"=>"1"}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1458)
+
+
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/messages_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 1299)
+
+
