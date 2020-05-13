@@ -1,9 +1,8 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :update, :destroy]
-
   # GET /messages
   def index
-    @messages = Message.all
+    @messages = Message.where(user_id: params[:user_id])
 
     render json: @messages
   end
@@ -46,6 +45,6 @@ class MessagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def message_params
-      params.require(:message).permit(:author, :title, :content)
+      params.require(:message).permit(:author, :title, :content, :user_id)
     end
 end
